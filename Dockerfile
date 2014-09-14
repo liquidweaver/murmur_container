@@ -1,4 +1,5 @@
 FROM phusion/baseimage:0.9.11
+MAINTAINER Joshua Weaver <joshuaweaver@gmail.com>
 
 ENV MURMUR_VERSION 1.2.8
 ENV SUPERUSER_PASSWORD CHANGE_ME
