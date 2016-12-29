@@ -1,15 +1,15 @@
-FROM phusion/baseimage:0.9.11
+FROM phusion/baseimage:0.9.16
 MAINTAINER Joshua Weaver <joshuaweaver@gmail.com>
 
-ENV MURMUR_VERSION 1.2.8
-ENV SUPERUSER_PASSWORD CHANGE_ME
+ENV MURMUR_VERSION 1.2.16
+ENV SUPERUSER_PASSWORD ghu-my-vir
 
 # Make sure we don't get notifications we can't answer during building.
 ENV    DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
     apt-get -y install wget && \
-    wget -qO- http://sourceforge.net/projects/mumble/files/Mumble/${MURMUR_VERSION}/murmur-static_x86-${MURMUR_VERSION}.tar.bz2/download | tar xvj && \
+    wget -qO- https://github.com/mumble-voip/mumble/releases/download/${MURMUR_VERSION}/murmur-static_x86-${MURMUR_VERSION}.tar.bz2 | tar xvj && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
